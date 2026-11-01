@@ -1,0 +1,48 @@
+package com.example.primerprograma;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+    LinearLayout layout;
+    Button btnSaludar;
+    TextView txtNombre;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setGravity(Gravity.CENTER);
+        layout.setPadding(50, 50, 50, 50);
+
+        btnSaludar = new Button(this);
+        btnSaludar.setText("Presiona para mostrar nombre");
+
+        txtNombre = new TextView(this);
+        txtNombre.setTextSize(24);
+        txtNombre.setGravity(Gravity.CENTER);
+        txtNombre.setPadding(0, 30, 0, 0);
+
+        btnSaludar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                txtNombre.setText("Paulo Cesar Ramirez Ramirez");
+            }
+        });
+
+        layout.addView(btnSaludar);
+        layout.addView(txtNombre);
+
+        setContentView(layout);
+    }
+}
